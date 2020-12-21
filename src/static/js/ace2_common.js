@@ -26,12 +26,6 @@ const Security = require('./security');
 
 const isNodeText = (node) => (node.nodeType === 3);
 
-const object = (o) => {
-  const F = () => {};
-  F.prototype = o;
-  return new F();
-};
-
 const getAssoc = (obj, name) => obj[`_magicdom_${name}`];
 
 const setAssoc = (obj, name, value) => {
@@ -71,7 +65,6 @@ const htmlPrettyEscape = (str) => Security.escapeHTML(str).replace(/\r?\n/g, '\\
 const noop = () => {};
 
 exports.isNodeText = isNodeText;
-exports.object = object;
 exports.getAssoc = getAssoc;
 exports.setAssoc = setAssoc;
 exports.binarySearch = binarySearch;
